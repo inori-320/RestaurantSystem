@@ -7,7 +7,7 @@ import java.util.*;
 
 public class Utils {
     //静态属性。。。
-    private static Scanner scanner = new Scanner(System.in);
+    private static final Scanner scanner = new Scanner(System.in);
     /**
      * 功能：读取键盘输入的一个菜单选项，值：1——5的范围
      * @return 1——5
