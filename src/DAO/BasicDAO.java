@@ -12,12 +12,12 @@ import java.util.List;
 /**
  * @author lty
  */
-public class BasicDao<T> {
+public class BasicDAO<T> {
     private QueryRunner queryRunner = new QueryRunner();
 
     public int dml(String sql, Object... params){
         Connection connection = null;
-        int affectedRows = 0;
+        int affectedRows;
         try {
             connection = DruidUtils.getConnection();
             affectedRows = queryRunner.update(connection, sql, params);
