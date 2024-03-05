@@ -4,7 +4,7 @@ package Domain;
  * @author lty
  */
 public class DiningTable {
-    private int id;
+    private Integer id;
     private String state;
     private String orderName;
     private String orderTel;

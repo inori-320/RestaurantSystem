@@ -4,10 +4,10 @@ package Domain;
  * @author lty
  */
 public class Menu {
-    private int id;
+    private Integer id;
     private String name;
     private String type;
-    private double price;
+    private Double price;
 
     public Menu() {}
 
@@ -52,6 +52,6 @@ public class Menu {
 
     @Override
     public String toString() {
-        return id + "\t\t" + name + "\t\t" + type + "\t\t" + price;
+        return id + "\t\t\t" + name + "\t\t\t" + type + "\t\t\t" + price;
     }
 }

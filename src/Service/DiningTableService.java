@@ -3,6 +3,7 @@ package Service;
 import DAO.DiningTableDAO;
 import Domain.DiningTable;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,13 +18,23 @@ public class DiningTableService {
         return dao.queryMulti(sql, DiningTable.class);
     }
 
+    public List<Integer> getOrdered(String name){
+        sql = "select id from diningTable where orderName = ?";
+        List<DiningTable> diningTables = dao.queryMulti(sql, DiningTable.class, name);
+        List<Integer> tables = new ArrayList<>();
+        for(DiningTable t: diningTables){
+            tables.add(t.getId());
+        }
+        return tables;
+    }
+
     public String checkTable(int id){
         sql = "select state from diningTable where id = ?";
         return (String) dao.queryScalar(sql, id);
     }
 
-    public void alterTable(int id, String name, String tel){
-        sql = "update diningTable set state = '满', orderName = ?, orderTel = ? where id = ?";
-        dao.dml(sql, name, tel, id);
+    public void alterTable(int id, String state, String name, String tel){
+        sql = "update diningTable set state = ?, orderName = ?, orderTel = ? where id = ?";
+        dao.dml(sql, state, name, tel, id);
     }
 }
