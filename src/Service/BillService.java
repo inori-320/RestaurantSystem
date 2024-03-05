@@ -10,13 +10,8 @@ import java.util.List;
  * @author lty
  */
 public class BillService {
-    private BillDAO dao = new BillDAO();
+    private final BillDAO dao = new BillDAO();
     private String sql;
-
-    public List<Bill> getBill(){
-        sql = "select * from bill";
-        return dao.queryMulti(sql, Bill.class);
-    }
 
     public void setBill(String name, int foodsId, int foodsNum, int tableId){
         sql = "insert into bill value(NULL, ?, ?, ?, ?, now())";

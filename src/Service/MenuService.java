@@ -9,7 +9,7 @@ import java.util.List;
  * @author lty
  */
 public class MenuService {
-    private MenuDAO dao = new MenuDAO();
+    private final MenuDAO dao = new MenuDAO();
     private String sql;
 
     public List<Menu> getAllFoods(){

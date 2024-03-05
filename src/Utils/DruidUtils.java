@@ -14,7 +14,7 @@ import java.util.Properties;
  * Druid工具类，方便直接获取数据库连接和断开连接
  */
 public class DruidUtils {
-    private static DataSource ds = null;
+    private static final DataSource ds;
 
     static {
         Properties info = new Properties();

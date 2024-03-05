@@ -20,16 +20,14 @@ public class View {
     private boolean isLoop = true;
     private String input;
     private String empId;
-    private String name;
     private String pwd;
-    private String job;
     Employee employee = null;
     private final EmpService empService = new EmpService();
     private final DiningTableService diningTableService = new DiningTableService();
     private final MenuService menuService = new MenuService();
     private final BillService billService = new BillService();
 
-    private void mainMenu() throws Exception {
+    private void mainMenu(){
         while(isLoop) {
             System.out.println("===============欢迎来到餐厅服务系统================");
             System.out.println("\t \t 1.餐厅会员注册");
@@ -56,15 +54,15 @@ public class View {
         }
     }
 
-    private void register() throws Exception {
+    private void register(){
         System.out.print("请输入账号：");
         empId = Utils.readString(100);
         System.out.print("请输入用户名：");
-        name = Utils.readString(100);
+        String name = Utils.readString(100);
         System.out.print("请输入密码：");
         pwd = Utils.readString(100);
         System.out.print("请输入职位（顾客请填写会员）：");
-        job = Utils.readString(100);
+        String job = Utils.readString(100);
         if(empService.registerEmp(empId, name, pwd, job)){
             System.out.println("注册成功！");
         } else {
@@ -72,7 +70,7 @@ public class View {
         }
     }
 
-    private void login() throws Exception {
+    private void login(){
         System.out.print("请输入员工号：");
         empId = Utils.readString(100);
         System.out.print("请输入密  码：");
@@ -87,7 +85,7 @@ public class View {
         }
     }
 
-    private void secondMenu() throws Exception {
+    private void secondMenu(){
         boolean isLoop_1 = true;
         while(isLoop_1) {
             System.out.println("================餐厅服务系统主界面=================");
@@ -280,7 +278,7 @@ public class View {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args){
         new View().mainMenu();
     }
 }

@@ -2,10 +2,6 @@ package Service;
 
 import DAO.EmpDAO;
 import Domain.Employee;
-import Utils.DruidUtils;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-
-import java.sql.Connection;
 
 /**
  * @author lty
