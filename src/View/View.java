@@ -6,8 +6,10 @@ import java.util.Scanner;
 import DAO.DiningTableDAO;
 import Domain.DiningTable;
 import Domain.Employee;
+import Domain.Menu;
 import Service.DiningTableService;
 import Service.EmpService;
+import Service.MenuService;
 import Utils.Utils;
 
 /**
@@ -25,6 +27,7 @@ public class View {
     Employee employee = null;
     private final EmpService empService = new EmpService();
     private final DiningTableService diningTableService = new DiningTableService();
+    private final MenuService menuService = new MenuService();
     private final Scanner scanf = new Scanner(System.in);
 
     private void mainMenu() throws Exception {
@@ -173,7 +176,11 @@ public class View {
     }
 
     private void showAllFoods(){
-
+        System.out.println("菜品编号\t\t菜品名\t\t类型\t\t价格");
+        List<Menu> foods = menuService.getAllFoods();
+        for(Menu m: foods){
+            System.out.println(m);
+        }
     }
 
     private void orderFoods(){
